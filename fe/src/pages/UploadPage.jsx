@@ -75,9 +75,10 @@ export default function UploadPage() {
 
     const formData = new FormData();
     formData.append("resume", file);
+    const api_url = import.meta.env.VITE_BACKEND_URL;
 
     try {
-      const res = await fetch("http://localhost:3000/api/analyze-resume", {
+      const res = await fetch(`${api_url}/api/analyze-resume`, {
         method: "POST",
         body: formData,
       });
